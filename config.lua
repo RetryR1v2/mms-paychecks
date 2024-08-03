@@ -7,7 +7,7 @@ Config.defaultlang = "de_lang"
 Config.WebHook = true
 
 Config.WHTitle = 'Paycheck:'
-Config.WHLink = 'https://discordapp.com/api/webhooks/1269410339959603262/JE7-i4Ds59KlNk2w_-V2TX3DRV4yirx5095LYf99FKg5kB0Ms-PWFxy5G3gY0P93bdZd'  -- Discord WH link Here
+Config.WHLink = ''  -- Discord WH link Here
 Config.WHColor = 16711680 -- red
 Config.WHName = 'Paycheck:' -- name
 Config.WHLogo = '' -- must be 30x30px
