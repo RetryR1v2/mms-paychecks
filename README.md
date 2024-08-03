@@ -25,4 +25,4 @@ vorp_core
 
 # CREDITS
 - Discord: https://discord.gg/Hua9DFXZYN
-- GitHub: https://github.com/RetryR1v2/mms-paycheck
+- GitHub: https://github.com/RetryR1v2/mms-paychecks
