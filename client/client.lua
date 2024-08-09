@@ -19,7 +19,6 @@ end)
 RegisterNetEvent('mms-paycheck:client:recieveuserdata')
 AddEventHandler('mms-paycheck:client:recieveuserdata',function(job)
     for h,v in ipairs(Config.Jobs) do
-        print(v.JobName)
         if v.JobName == job then
             JobTimer = v.PaycheckTimer
             TriggerEvent('mms-paycheck:client:PaycheckTimer',JobTimer)

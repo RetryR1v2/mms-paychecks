@@ -10,7 +10,7 @@ local function versionCheckPrint(_type, log)
 end
 
 local function CheckVersion()
-    PerformHttpRequest('https://raw.githubusercontent.com/RetryR1v2/mms-paycheck/main/version.txt', function(err, text, headers)
+    PerformHttpRequest('https://raw.githubusercontent.com/RetryR1v2/mms-paychecks/main/version.txt', function(err, text, headers)
         local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
 
         if not text then 
@@ -55,8 +55,13 @@ RegisterServerEvent('mms-packcheck:server:PaychekSystem',function()
             for a,grades in ipairs(jobs.Grades) do
                 if jobgrade == grades.Grade then
                     local Payment = grades.Payment
+                    local CM = grades.CustomMessage
                     Character.addCurrency(0,Payment)
-                    VORPcore.NotifyTip(src,_U('PaymentDone') .. Payment,4000)
+                    if Config.UseCustomMessage then
+                        VORPcore.NotifyTip(src, CM, 4000)
+                    else
+                        VORPcore.NotifyTip(src,_U('PaymentDone') .. Payment,4000)
+                    end
                     if Config.WebHook then
                         VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,firstname .. ' ' .. lastname .. _U('GotAPayment') .. Payment, Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
                     end

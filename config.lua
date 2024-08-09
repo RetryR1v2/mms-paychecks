@@ -16,41 +16,28 @@ Config.WHAvatar = '' -- must be 30x30px
 
 ---------------------- Paycheck Settings ------------------
 
+Config.UseCustomMessage = true
 
 Config.Jobs = {
     {
-        JobName = 'doktor',  --- Job Name NOT LABLE
+        JobName = 'pr',  --- Job Name NOT LABLE Pfarrer und Gouverneur in Einem
         PaycheckTimer = 1800, -- 1800 Sec. Timer in Sec Every 30 Min the Payment is Done
         Grades = {
             {
                 Grade = 1,   -- Grade/Rank 
-                Payment = 10, -- Payment in $
-            },
-            {
-                Grade = 2,
-                Payment = 11,
-            },
-            {
-                Grade = 3,
-                Payment = 12,
+                Payment = 50, -- Payment in $
+                CustomMessage = 'Du hast dein Pfarrer Gehalt von 50$ erhalten.'
             },
         }
     },
     {
-        JobName = 'police',
+        JobName = 'unemployed',
         PaycheckTimer = 1800,
         Grades = {
             {
-                Grade = 1,
-                Payment = 10,
-            },
-            {
-                Grade = 2,
-                Payment = 11,
-            },
-            {
-                Grade = 3,
-                Payment = 12,
+                Grade = 0,
+                Payment = 15,
+                CustomMessage = 'Du hast dein Arbeitslosengeld von 15$ erhalten.'
             },
         }
     },

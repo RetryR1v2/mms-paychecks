@@ -10,9 +10,13 @@
 - Every Grade can have his Own Payment
 - Security Check if Player has the Needed Job to start the Timer
 
+
+
 # Changelog
 
 - 1.1.0 Initial Release Version
+- 1.1.1 Added Coustom Message
+- Fixed Version Check
 
 # installation 
 
