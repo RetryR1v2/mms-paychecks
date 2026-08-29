@@ -38,7 +38,8 @@ RegisterServerEvent('mms-paycheck:server:getplayerdata',function()
     local src = source
     local Character = VORPcore.getUser(src).getUsedCharacter
     local job = Character.job
-    TriggerClientEvent('mms-paycheck:client:recieveuserdata',src,job)
+    local CharID = Character.charIdentifier
+    TriggerClientEvent('mms-paycheck:client:recieveuserdata',src,job,CharID)
 end)
 
 --- Paycheck Payment
@@ -66,6 +67,21 @@ RegisterServerEvent('mms-packcheck:server:PaychekSystem',function()
                         VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,firstname .. ' ' .. lastname .. _U('GotAPayment') .. Payment, Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
                     end
                 end
+            end
+        end
+    end
+    for h,CharID in ipairs(Config.CharacterID) do
+        if CharID.CharacterID == Character.charIdentifier then
+            local Payment = CharID.Payment
+            local CM = CharID.CustomMessage
+            Character.addCurrency(0,Payment)
+            if Config.UseCustomMessage then
+                VORPcore.NotifyTip(src, CM, 4000)
+            else
+                VORPcore.NotifyTip(src,_U('PaymentDone') .. Payment,4000)
+            end
+            if Config.WebHook then
+                VORPcore.AddWebhook(Config.WHTitle, Config.WHLink,firstname .. ' ' .. lastname .. _U('GotAPayment') .. Payment, Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
             end
         end
     end

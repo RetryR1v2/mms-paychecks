@@ -2,6 +2,7 @@ local VORPcore = exports.vorp_core:GetCore()
 
 local PaycheckTimer = 0
 local JobTimer = 0
+local TimerRunning = false
 ------------------------------------------------------------------------------
 
 Citizen.CreateThread(function()
@@ -17,11 +18,23 @@ AddEventHandler('vorp:SelectedCharacter', function()
 end)
 
 RegisterNetEvent('mms-paycheck:client:recieveuserdata')
-AddEventHandler('mms-paycheck:client:recieveuserdata',function(job)
+AddEventHandler('mms-paycheck:client:recieveuserdata',function(job,CharID)
     for h,v in ipairs(Config.Jobs) do
         if v.JobName == job then
             JobTimer = v.PaycheckTimer
-            TriggerEvent('mms-paycheck:client:PaycheckTimer',JobTimer)
+            if not TimerRunning then
+                TriggerEvent('mms-paycheck:client:PaycheckTimer',JobTimer)
+            end
+            TimerRunning = true
+        end
+    end
+    for h,v in ipairs(Config.CharacterID) do
+        if v.CharacterID == CharID then
+            JobTimer = v.PaycheckTimer
+            if not TimerRunning then
+                TriggerEvent('mms-paycheck:client:PaycheckTimer',JobTimer)
+            end
+            TimerRunning = true
         end
     end
 end)

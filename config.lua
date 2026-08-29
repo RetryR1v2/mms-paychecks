@@ -42,3 +42,20 @@ Config.Jobs = {
         }
     },
 }
+
+
+Config.CharacterID = {
+    {
+        CharacterID = 1, -- Character ID
+        PaycheckTimer = 1800, -- 1800 Sec. Timer in Sec Every 30 Min the Payment is Done
+        Payment = 50,
+        CustomMessage = 'Du hast dein Pfarrer Gehalt von 50$ erhalten.'
+    },
+    {
+        CharacterID = 2, -- Character ID
+        PaycheckTimer = 1800, -- 1800 Sec. Timer in Sec Every 30 Min the Payment is Done
+        Payment = 50,
+        CustomMessage = 'Du hast dein Pfarrer Gehalt von 50$ erhalten.'
+    },
+}
+

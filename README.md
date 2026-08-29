@@ -17,6 +17,7 @@
 - 1.1.0 Initial Release Version
 - 1.1.1 Added Coustom Message
 - Fixed Version Check
+- 1.1.2 Added Payment by CharacterID
 
 # installation 
 
